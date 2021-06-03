@@ -80,8 +80,12 @@ function App() {
                       <div className="hoverEffect">
                         <div className="whiteBlock"></div>
                         <div className="userInfo">
-                          <div>Height: {user.height}</div>
-                          <div>Mass: {user.mass}</div>
+                          <div>
+                            Height: <strong>{user.height}</strong>
+                          </div>
+                          <div>
+                            Mass: <strong>{user.mass}</strong>
+                          </div>
                         </div>
                         <div className="whiteBlock">
                           <small>

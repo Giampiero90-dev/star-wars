@@ -15,7 +15,7 @@
 .searchBar {
   margin-top: 20px;
   margin-bottom: 40px;
-  width: fit-content;
+  width: 300px;
   border-radius: 5px;
   border: 1px solid black;
 }

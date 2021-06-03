@@ -9,7 +9,15 @@ export function peopleList(data) {
 
 export function fetchPeople() {
   return async function thunk(dispatch, getState) {
-    const response = await axios.get("http://swapi.dev/api/people/?page=1");
-    dispatch(peopleList(response.data));
+    try {
+      const response = await axios.get("http://swapi.dev/api/people/", {
+        params: {
+          _limit: 10,
+        },
+      });
+      dispatch(peopleList(response.data));
+    } catch (e) {
+      console.log(e);
+    }
   };
 }

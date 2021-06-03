@@ -10,7 +10,7 @@ import { Card, Col, Container, Row, Spinner } from "react-bootstrap";
 
 function App() {
   const [searchInput, set_searchInput] = useState("");
-  const [selectedSortingMethod, setSelectedSortingMethod] = useState("name");
+  const [selectedSortingMethod, setSelectedSortingMethod] = useState("AZ");
   const dispatch = useDispatch();
   const people = useSelector(selectPeople);
 
@@ -24,6 +24,15 @@ function App() {
           user.name.toLowerCase().includes(searchInput.toLowerCase())
         )
       : people;
+
+  const sortedNames = searchedPeople?.sort((userA, userB) => {
+    if (selectedSortingMethod === "AZ") {
+      return userA.name.localeCompare(userB.name);
+    } else if (selectedSortingMethod === "ZA") {
+      return userB.name.localeCompare(userA.name);
+    }
+    return sortedNames;
+  });
 
   return (
     <div className="App">
@@ -49,23 +58,22 @@ function App() {
               value={selectedSortingMethod}
               onChange={(e) => setSelectedSortingMethod(e.target.value)}
             >
-              <option value="name">Name</option>
-              <option value="height">Height</option>
-              <option value="mass">Mass</option>
+              <option value="AZ">A-Z</option>
+              <option value="ZA">Z-A</option>
             </select>
           </Col>
         </Row>
-        {!people ? (
+        {!sortedNames ? (
           <Row
             className="d-flex justify-content-center align-items-center mt-5"
-            style={{ height: 700, margin: "auto" }}
+            style={{ height: 700, margin: "auto", color: "white" }}
           >
             <Spinner animation="border" role="status" />
           </Row>
         ) : (
           <Container>
             <Row>
-              {people.map((user) => {
+              {sortedNames?.map((user) => {
                 return (
                   <Col key={user.id}>
                     <Card className="userCard">

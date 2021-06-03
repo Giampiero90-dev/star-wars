@@ -75,7 +75,7 @@ function App() {
             <Row>
               {sortedNames?.map((user) => {
                 return (
-                  <Col key={user.id}>
+                  <Col key={user.name}>
                     <Card className="userCard">
                       <div className="hoverEffect">
                         <div className="whiteBlock"></div>

@@ -71,7 +71,10 @@ function App() {
                         <div className="whiteBlock">
                           <small>
                             <div></div>
-                            <div> - Gender: {user.gender} - </div>
+                            <div>
+                              {" "}
+                              <strong>Gender: {user.gender}</strong>{" "}
+                            </div>
                           </small>
                         </div>
                       </div>

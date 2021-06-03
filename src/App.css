@@ -3,7 +3,8 @@
   background: url("https://images.pexels.com/photos/998641/pexels-photo-998641.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
   height: auto;
   width: auto;
-  background-repeat: repeat;
+  font-family: "Roboto", sans-serif;
+  background-size: cover;
 }
 
 .logo {
@@ -12,9 +13,9 @@
 }
 
 .searchBar {
-  margin-top: 40px;
-  margin-bottom: 20px;
-  width: 300px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  width: fit-content;
   border-radius: 5px;
   border: 1px solid black;
 }
@@ -22,7 +23,7 @@
 .userCard {
   width: 18rem;
   height: auto;
-  margin-left: 15px;
+  margin-left: 5px;
   margin-right: 5px;
   margin-bottom: 60px;
   position: relative;

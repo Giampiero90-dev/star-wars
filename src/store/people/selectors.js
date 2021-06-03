@@ -1,3 +1,3 @@
 export function selectPeople(reduxStore) {
-  return reduxStore.peopleReducer.allPeople;
+  return reduxStore.peopleReducer.allPeople.results;
 }

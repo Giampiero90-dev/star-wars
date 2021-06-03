@@ -6,7 +6,7 @@ import { selectPeople } from "./store/people/selectors";
 
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Col, Container, Row } from "react-bootstrap";
+import { Card, Col, Container, Row, Spinner } from "react-bootstrap";
 
 function App() {
   const [searchInput, set_searchInput] = useState("");
@@ -48,6 +48,55 @@ function App() {
             </select>
           </Col>
         </Row>
+        {!people ? (
+          <Row
+            className="d-flex justify-content-center align-items-center mt-5"
+            style={{ height: 700, margin: "auto" }}
+          >
+            <Spinner animation="border" role="status" />
+          </Row>
+        ) : (
+          <Container>
+            <Row>
+              {people.map((user) => {
+                return (
+                  <Col key={user.id}>
+                    <Card className="userCard">
+                      <div className="hoverEffect">
+                        <div className="whiteBlock"></div>
+                        <div className="userInfo">
+                          <div>Height: {user.height}</div>
+                          <div>Mass: {user.mass}</div>
+                        </div>
+                        <div className="whiteBlock">
+                          <small>
+                            <div></div>
+                            <div> - Gender: {user.gender} - </div>
+                          </small>
+                        </div>
+                      </div>
+                      <Card.Img
+                        variant="top"
+                        src="https://picsum.photos/300/200"
+                        alt="user image"
+                      />
+                      <Card.Body>
+                        <Card.Title>
+                          <strong>{user.name}</strong>
+                        </Card.Title>
+                        <Card.Text>
+                          <small>
+                            <strong> Birth year: {user.birth_year}</strong>
+                          </small>
+                        </Card.Text>
+                      </Card.Body>
+                    </Card>
+                  </Col>
+                );
+              })}
+            </Row>
+          </Container>
+        )}
       </Container>
     </div>
   );

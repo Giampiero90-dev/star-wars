@@ -18,6 +18,13 @@ function App() {
     dispatch(fetchPeople());
   }, [dispatch]);
 
+  const searchedPeople =
+    searchInput.length > 0
+      ? people.filter((user) =>
+          user.name.toLowerCase().includes(searchInput.toLowerCase())
+        )
+      : people;
+
   return (
     <div className="App">
       <Container className="mainContainer">
@@ -32,7 +39,7 @@ function App() {
               className="searchBar"
               value={searchInput}
               onInput={(e) => set_searchInput(e.target.value)}
-              placeholder="Search..."
+              placeholder="Search by name..."
             />
           </Col>
           <Col>
